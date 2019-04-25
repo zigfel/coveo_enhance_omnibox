@@ -13,17 +13,41 @@
       document.addEventListener('DOMContentLoaded', function () {
         Coveo.SearchEndpoint.configureSampleEndpointV2();
         Coveo.init(document.body);
+
+        // if (Coveo.LazyInitialization) {
+        //  Coveo.load('Searchbox').then(function () {
+
+        // var foo = document.querySelector('.magic-box-suggestions');
+
+        // var observer = new MutationObserver(function(mutations) {
+        //   console.log('magic-box-hasSuggestion changed');
+        // });
+        // observer.observe(foo, { 
+        //   attributes: true, 
+        //   attributeFilter: ['magic-box-hasSuggestion'] });
+
+        
+
+      // var buttonElement = document.querySelector('.magic-box-suggestions');
+      //  buttonElement.addEventListener('data-attribute-changed', function(event) {
+      //   alert( $("#selected-date-range").attr("value")  );   
+      // });
+    // });
+  //}     
       })
+   
     </script>
   </head>
-  <body id="search" class='CoveoSearchInterface' data-enable-history="true">
-    <div class="CoveoHelloWorld"></div>
+  <body id="search" class='CoveoSearchInterface' data-enable-history="true" data-main-search-interface="true">
+      <div class='CoveoAnalytics'></div>
+
+    <div class="CoveoOmniboxManager"></div>
     <div class="coveo-tab-section">
       <a class="CoveoTab" data-id="All" data-caption="All Content"></a>
     </div>
     <div class='coveo-search-section'>
       <div class="CoveoSettings"></div>
-      <div class="CoveoSearchbox" data-enable-omnibox="true"></div>
+      <div class="CoveoSearchbox" id="searchbox" data-enable-omnibox="true" data-omnibox-expander="true"></div>
     </div>
     <div class="coveo-main-section">
       <div class="coveo-facet-column">

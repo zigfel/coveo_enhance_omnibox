@@ -34,7 +34,13 @@ module.exports = [{
       test: /\.ts$/, 
       loader: 'ts-loader',
       options: {}
-    }]
+    },
+    {
+      test: /\.svg$/, 
+      loader: 'svg-inline-loader'
+    }
+  ],
+    
   },
   bail: true
 }]

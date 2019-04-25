@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, height=device-height" >
+    <title>Title</title>
+    <link rel="stylesheet" href="./css/CoveoFullSearch.css"/>
+    <link rel="stylesheet" href="./css/coveoextension.css"/>
+    <script src="js/CoveoJsSearch.Lazy.js"></script>
+    <script src="js/coveo.extension.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        Coveo.SearchEndpoint.configureSampleEndpointV2();
+        var root = Coveo.$$(document).find("#searchbox");
+
+        Coveo.initSearchbox(root, "http://localhost:3000/");
+    
+      })
+   
+    </script>
+  </head>
+  <body >
+      <div id="searchbox" data-omnibox-expander="true">
+          <div class="CoveoSearchbox">
+              <div class='CoveoAnalytics'></div>
+              <div class="CoveoOmniboxManager"></div>
+          </div>
+          
+        </div>
+  </body>
+</html>

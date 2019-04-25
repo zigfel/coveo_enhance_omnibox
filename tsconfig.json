@@ -11,5 +11,9 @@
   ],
   "exclude": [
     "node_modules"
+  ],
+  "files": [
+    "node_modules/coveo-search-ui/bin/ts/CoveoJsSearch.d.ts",
+    "src/Index.ts"
   ]
 }
