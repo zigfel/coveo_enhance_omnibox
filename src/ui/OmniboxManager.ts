@@ -19,7 +19,7 @@ import axios from 'axios'
 declare const require: (svgPath: string) => string;
 const SearchSVGIcon = require('./search.svg');
 const LocationSVGIcon = require('./location-pin.svg');
-var manuallyExpanded = false;
+
 
 export interface IOmniboxManagerOptions {
   searchboxContainer: string;
@@ -118,8 +118,9 @@ private AddOmniboxBeforeRedirectEventHandler() {
       searchBoxInput.addEventListener("keyup", function(){
        
        let foundLocation = false;
-       if((<HTMLInputElement>searchBoxInput).value =="coveoG"){
+      // if((<HTMLInputElement>searchBoxInput).value =="coveo"){
          console.log('coveoG typed');
+         //debugger;
           var suggestionNode = document.getElementsByClassName('magic-box-suggestions')[0];
 
           var locations = document.querySelectorAll(".magic-box-suggestion[data-swiss-post-location='true']");
@@ -229,17 +230,16 @@ private AddOmniboxBeforeRedirectEventHandler() {
               const iconPlaceItem = $$('span', { className: 'coveo-suggestion-location-icon'}, LocationSVGIcon).el;
               const placeItem = $$('span', { className: 'coveo-suggestion-place' }, srvLocalities[i]).el;
               
+              
               suggestionItem.insertBefore(placeItem,suggestionItem.firstChild);
               suggestionItem.insertBefore(iconPlaceItem,suggestionItem.firstChild);
   
               
               suggestionNode.insertBefore(suggestionItem,suggestionNode.firstChild);
             }
-
-           
-            manuallyExpanded = true;
+            
           }
-        }
+        //}
       });
 
        // Select the node that will be observed for mutations
@@ -254,29 +254,23 @@ private AddOmniboxBeforeRedirectEventHandler() {
 
         for(var mutation of mutationsList) {
               if (mutation.type == 'attributes') {
-                //setTimeout( getData(mutation), 100);
-                  
-                  if(manuallyExpanded){
-                    manuallyExpanded = false;
-                    break;
-                    
-                  }
-                  console.log('A child node has been added or removed.');
-                  
+               
                   for(var child of mutation.target.childNodes) {
                       let suggestionContainer = child;
                      
                       ids= ids + 1;
                       for(var sugg of child.children) {
-                        let suggestionIcon = sugg.getElementsByClassName('coveo-suggestion-icon')[0];
-                        let suggestionLocationIcon = sugg.getElementsByClassName('coveo-suggestion-location-icon')[0];
-                        
-                        if(suggestionIcon == null && suggestionLocationIcon == null){
-                          let suggestion = sugg;
-                           
-                          const iconItem = $$('span', { className: 'coveo-suggestion-icon' }, SearchSVGIcon).el;
-                          suggestion.insertBefore(iconItem,suggestion.childNodes[0]);
-                          //suggestion.prepend(iconItem);
+                        if(sugg.className != "coveo-suggestion-location-icon" && sugg.className != "coveo-suggestion-place"){
+                          let suggestionIcon = sugg.getElementsByClassName('coveo-suggestion-icon')[0];
+                          let suggestionLocationIcon = sugg.getElementsByClassName('coveo-suggestion-location-icon')[0];
+                          
+                          if(suggestionIcon == null && suggestionLocationIcon == null){
+                            let suggestion = sugg;
+                            
+                            const iconItem = $$('span', { className: 'coveo-suggestion-icon' }, SearchSVGIcon).el;
+                            suggestion.insertBefore(iconItem,suggestion.childNodes[0]);
+                            
+                          }
                         }
                       }
                       
