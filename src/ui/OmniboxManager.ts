@@ -119,6 +119,7 @@ private AddOmniboxBeforeRedirectEventHandler() {
        
        let foundLocation = false;
        if((<HTMLInputElement>searchBoxInput).value =="coveoG"){
+         console.log('coveoG typed');
           var suggestionNode = document.getElementsByClassName('magic-box-suggestions')[0];
 
           var locations = document.querySelectorAll(".magic-box-suggestion[data-swiss-post-location='true']");
@@ -267,7 +268,6 @@ private AddOmniboxBeforeRedirectEventHandler() {
                      
                       ids= ids + 1;
                       for(var sugg of child.children) {
-                        //coveo-omnibox-hightlight
                         let suggestionIcon = sugg.getElementsByClassName('coveo-suggestion-icon')[0];
                         let suggestionLocationIcon = sugg.getElementsByClassName('coveo-suggestion-location-icon')[0];
                         
@@ -275,8 +275,8 @@ private AddOmniboxBeforeRedirectEventHandler() {
                           let suggestion = sugg;
                            
                           const iconItem = $$('span', { className: 'coveo-suggestion-icon' }, SearchSVGIcon).el;
-          
-                          suggestion.prepend(iconItem);
+                          suggestion.insertBefore(iconItem,suggestion.childNodes[0]);
+                          //suggestion.prepend(iconItem);
                         }
                       }
                       

@@ -11,8 +11,14 @@
     <script src="js/templates/templates.js"></script>
     <script>
       document.addEventListener('DOMContentLoaded', function () {
-        Coveo.SearchEndpoint.configureSampleEndpointV2();
+        //Coveo.SearchEndpoint.configureSampleEndpointV2();
+     
+        Coveo.SearchEndpoint.configureCloudV2Endpoint('postchnonprodb0co6k3d',
+                                                    'eyJhbGciOiJIUzI1NiJ9.eyJ2OCI6dHJ1ZSwib3JnYW5pemF0aW9uIjoicG9zdGNobm9ucHJvZGIwY282azNkIiwidXNlcklkcyI6W3sicHJvdmlkZXIiOiJFbWFpbCBTZWN1cml0eSBQcm92aWRlciIsIm5hbWUiOiJlYXViaW5AY292ZW8uY29tIiwidHlwZSI6IlVzZXIifV0sInJvbGVzIjpbInF1ZXJ5RXhlY3V0b3IiXSwiZXhwIjoxNTU4NjAxNDQwLCJpYXQiOjE1NTg1MTUwNDB9.NZvlLjZs7bZQlfSW8RaeqVFecEe0r8RL3TDotWKacmE');
         Coveo.init(document.body);
+      
+    })
+        //xxfbe992eb-f9ca-440e-ad02-be7e660f1282
 
         // if (Coveo.LazyInitialization) {
         //  Coveo.load('Searchbox').then(function () {
@@ -34,13 +40,14 @@
       // });
     // });
   //}     
-      })
+      //})
    
     </script>
-  </head>
-  <body id="search" class='CoveoSearchInterface' data-enable-history="true" data-main-search-interface="true">
+  </head> 
+  <body id="search" class='CoveoSearchInterface' data-enable-history="true" data-main-search-interface="true" data-pipeline='Post.CH'>
       <div class='CoveoAnalytics'></div>
-
+      <div class='CoveoTriggers'></div>
+      <!-- <div class='CoveoQueryPipeline'></div> -->
     <div class="CoveoOmniboxManager"></div>
     <div class="coveo-tab-section">
       <a class="CoveoTab" data-id="All" data-caption="All Content"></a>
@@ -81,7 +88,7 @@
         <div class="CoveoHiddenQuery"></div>
         <div class="CoveoDidYouMean"></div>
         <div class="CoveoErrorReport"></div>
-        <div class="CoveoResultList" data-layout="list" data-wait-animation="fade" data-auto-select-fields-to-include="true"></div>
+        <div class="CoveoResultList" data-layout="list" data-wait-animation="fade" data-auto-select-fields-to-include="true" data-enable-infinite-scroll='true'></div>
         <div class="CoveoResultList" data-layout="card" data-wait-animation="fade" data-auto-select-fields-to-include="true"></div>
         <div class="CoveoPager"></div>
         <div class="CoveoLogo"></div>
