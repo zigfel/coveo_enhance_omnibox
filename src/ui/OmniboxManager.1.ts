@@ -51,9 +51,13 @@ export class OmniboxManager extends Component {
       this.AddOmniboxEventHandler()
       this.AddOmniboxBeforeRedirectEventHandler()
       this.bind.onRootElement(QueryEvents.newQuery, (args:INewQueryEventArgs) => this.NewQueryEventHandler(args));
+      this.bind.onRootElement(Coveo.OmniboxEvents.populateOmniboxSuggestions, (args: Coveo.IPopulateOmniboxSuggestionsEventArgs) => this.handlePopulateOmniboxSuggestions(args));
       
   }
   
+  private handlePopulateOmniboxSuggestions(args: Coveo.IPopulateOmniboxSuggestionsEventArgs) {
+    //args.suggestions.push(this.getCustomSuggestions(args.suggestions.pop(), args.omnibox));
+  }
   
  public getData()  {
 
@@ -137,6 +141,7 @@ private AddOmniboxBeforeRedirectEventHandler() {
           
            var srvLocations: string[]  = new Array();
            var srvLocalities: string[]  = new Array();
+           
            let locationsIdx = -1;
            let localitiesIdx = -1;
 
@@ -178,6 +183,8 @@ private AddOmniboxBeforeRedirectEventHandler() {
               }
             }
 
+          
+            
             // axios({
             //   method: 'post',
             //   url: 'https://www.post.ch/api/LocationsAutocomplete/AutocompleteLocation?sc_site=post-portal&sc_lang=en',

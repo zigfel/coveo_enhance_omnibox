@@ -14,7 +14,7 @@
         //Coveo.SearchEndpoint.configureSampleEndpointV2();
      
         Coveo.SearchEndpoint.configureCloudV2Endpoint('postchnonprodb0co6k3d',
-                                                    'eyJhbGciOiJIUzI1NiJ9.eyJ2OCI6dHJ1ZSwib3JnYW5pemF0aW9uIjoicG9zdGNobm9ucHJvZGIwY282azNkIiwidXNlcklkcyI6W3sicHJvdmlkZXIiOiJFbWFpbCBTZWN1cml0eSBQcm92aWRlciIsIm5hbWUiOiJlYXViaW5AY292ZW8uY29tIiwidHlwZSI6IlVzZXIifV0sInJvbGVzIjpbInF1ZXJ5RXhlY3V0b3IiXSwiZXhwIjoxNTU4NjAxNDQwLCJpYXQiOjE1NTg1MTUwNDB9.NZvlLjZs7bZQlfSW8RaeqVFecEe0r8RL3TDotWKacmE');
+                                                    'eyJhbGciOiJIUzI1NiJ9.eyJ2OCI6dHJ1ZSwib3JnYW5pemF0aW9uIjoicG9zdGNobm9ucHJvZGIwY282azNkIiwidXNlcklkcyI6W3sicHJvdmlkZXIiOiJFbWFpbCBTZWN1cml0eSBQcm92aWRlciIsIm5hbWUiOiJlYXViaW5AY292ZW8uY29tIiwidHlwZSI6IlVzZXIifV0sInJvbGVzIjpbInF1ZXJ5RXhlY3V0b3IiXSwiZXhwIjoxNTU4NzgxMDI2LCJpYXQiOjE1NTg2OTQ2MjZ9.mQCSs-8w_S_8nuvt-WndrhtZJec_TBCluO61tbThUYw');
         Coveo.init(document.body);
       
     })
@@ -54,7 +54,9 @@
     </div>
     <div class='coveo-search-section'>
       <div class="CoveoSettings"></div>
-      <div class="CoveoSearchbox" id="searchbox" data-enable-omnibox="true" data-omnibox-expander="true"></div>
+      <div class="CoveoSearchbox" id="searchbox" data-enable-omnibox="true" data-omnibox-expander="true">
+          <div class="CoveoCustomOmniboxSuggestions" data-Input-Threshold-Base-Suggestions="1" data-Input-Threshold-Custom-Suggestions="2" data-number-Of-Suggestions-To-Scroll="8"></div>
+      </div>
     </div>
     <div class="coveo-main-section">
       <div class="coveo-facet-column">
