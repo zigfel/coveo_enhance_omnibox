@@ -61,7 +61,7 @@
   },
   "snyk": true,
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "snyk": "^1.89.0",
     "svg-inline-loader": "^0.8.0",
     "tns-core-modules": "^5.3.1"
